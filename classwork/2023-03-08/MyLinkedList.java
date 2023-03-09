@@ -13,7 +13,13 @@ public class MyLinkedList{
 
   /* Add a new node which data value to the front of the list */
   public void add(String value){
-
+    Node newHead = new Node(data);
+    if (head == null) {
+      head = newHead;
+      return;
+    }
+    newHead.next = head;
+    head = newHead;
   }
 
   /* Returns the value in the node at location index. */
@@ -24,20 +30,35 @@ public class MyLinkedList{
     // Counter to track a node position
     int counter = 0;
     
-    return "";
+    while (counter < index && walker.getNext() != null){
+      walker = walker.getNext();
+      counter++;
+    }
+    return walker.getData();
   }
 
   /* Return the list as a string */
   public String toString(){
     // Create a reference to head. It will help loop through the list
     Node walker = head;
-    
-    return "";
+    String accum;
+    while (walker.getNext() != null){
+      accum += walker.toString()
+      walker = walker.getNext();
+    }
+    accum += walker.toString()
+    return accum;
   }
 
   /* Returns the number of elements in the list */
   public int size(){
-    return 0;
+    Node walker = head;
+    int counter = 1;
+    while (walker.getNext() != null){
+      walker = walker.getNext();
+      counter++;
+    }
+    return counter;
   }
 
 
