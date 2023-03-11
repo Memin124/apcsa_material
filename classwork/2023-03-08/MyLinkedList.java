@@ -18,16 +18,13 @@ public class MyLinkedList{
       head = newHead;
       return;
     }
-    newHead.next = head;
+    newHead.setNext( head);
     head = newHead;
   }
 
   /* Returns the value in the node at location index. */
   public String get(int index){
-  
-    // Create a reference to head. It will help loop through the list
     Node walker = head;
-    // Counter to track a node position
     int counter = 0;
     
     while (counter < index && walker.getNext() != null){
