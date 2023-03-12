@@ -78,7 +78,7 @@ public class MyLinkedList{
   /*Adds a new node which contains value at index */
   public void add(int index, String value){
     Node newNode = new Node(value);
-    newNode.setNext( getNode( index +1));
+    newNode.setNext( getNode( index);
     if( index == 0){
       head = newNode;
     } else{
